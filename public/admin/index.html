@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Панель мастера</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600&display=swap&text=%E9%A6%99%E5%88%80%E9%8B%8F%E5%8C%A0">
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+  <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m13.5 6.5 4 4"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4.5 7h15M10 7V4.5h4V7M6.5 7l1 13h9l1-13"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3.8 2.5 5.2 5.7.8-4.1 4 1 5.6L12 16.7l-5.1 2.7 1-5.6-4.1-4 5.7-.8z"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M3.5 7.5 12 3l8.5 4.5v9L12 21l-8.5-4.5z"/><path d="M3.5 7.5 12 12l8.5-4.5M12 12v9"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 15.5V4M7.5 8.5 12 4l4.5 4.5"/><path d="M4.5 14.5v4a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-4"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4.5h5.5V10M19.5 4.5 11 13"/><path d="M18 14v4.5a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path d="M14.5 4.5h4a1.5 1.5 0 0 1 1.5 1.5v12a1.5 1.5 0 0 1-1.5 1.5h-4M10 16l-4-4 4-4M6 12h10"/></symbol>
+    <symbol id="i-eye-pw" viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></symbol>
+  </svg>
+
+  <!-- Вход -->
+  <main class="login" data-view="login" hidden>
+    <form class="login__card" data-login-form novalidate>
+      <span class="seal seal--lg" aria-hidden="true">香</span>
+      <h1>Панель мастера</h1>
+      <p class="login__lead">Войдите, чтобы добавлять ароматы, фото и менять тексты сайта.</p>
+      <label class="field">
+        <span>Пароль</span>
+        <span class="pw">
+          <input type="password" name="password" autocomplete="current-password" required>
+          <button type="button" class="pw__toggle" data-pw-toggle aria-label="Показать пароль"><svg class="i"><use href="#i-eye-pw"/></svg></button>
+        </span>
+      </label>
+      <p class="hint" data-demo-only hidden>Демо-версия: подойдёт любой пароль.</p>
+      <p class="form-error" data-login-error role="alert" hidden></p>
+      <button class="btn btn--dark btn--block" type="submit">Войти</button>
+      <a class="login__back" href="/">← Вернуться на сайт</a>
+    </form>
+  </main>
+
+  <!-- Панель -->
+  <div class="app" data-view="app" hidden>
+    <header class="topbar">
+      <div class="topbar__row">
+        <a class="brand" href="/admin/">
+          <span class="seal" aria-hidden="true">香</span>
+          <span><b data-brand>KŌDŌ</b><small>панель мастера</small></span>
+        </a>
+        <nav class="tabs" role="tablist" aria-label="Разделы панели">
+          <button type="button" role="tab" id="tab-btn-perfumes" aria-controls="tab-perfumes" aria-selected="true" data-tab="perfumes">Ароматы <span class="tabs__count" data-count-all></span></button>
+          <button type="button" role="tab" id="tab-btn-settings" aria-controls="tab-settings" aria-selected="false" data-tab="settings">Сайт и тексты</button>
+          <button type="button" role="tab" id="tab-btn-security" aria-controls="tab-security" aria-selected="false" data-tab="security">Безопасность</button>
+        </nav>
+        <div class="topbar__actions">
+          <a class="btn btn--line btn--sm" href="/" target="_blank" rel="noopener"><svg class="i"><use href="#i-external"/></svg><span class="hide-sm">Открыть сайт</span></a>
+          <button type="button" class="btn btn--line btn--sm" data-logout><svg class="i"><use href="#i-logout"/></svg><span class="hide-sm">Выйти</span></button>
+        </div>
+      </div>
+    </header>
+
+    <div class="notice notice--demo" data-demo-only hidden>
+      <div class="wrap notice__row">
+        <span>Демо-версия: всё, что вы меняете, сохраняется только в этом браузере — и на сайте видно только на этом устройстве.</span>
+        <button type="button" class="btn btn--sm btn--line" data-demo-reset>Сбросить демо</button>
+      </div>
+    </div>
+
+    <div class="notice" data-default-pw hidden>
+      <div class="wrap notice__row">
+        <span>Вы вошли с демо-паролем. Перед публикацией сайта обязательно смените его.</span>
+        <button type="button" class="btn btn--sm btn--dark" data-goto="security">Сменить пароль</button>
+      </div>
+    </div>
+
+    <main class="wrap">
+      <!-- Ароматы -->
+      <section id="tab-perfumes" role="tabpanel" aria-labelledby="tab-btn-perfumes" data-panel="perfumes">
+        <div class="page-head">
+          <div>
+            <h1 class="page-title">Ароматы</h1>
+            <p class="page-sub" data-stats></p>
+          </div>
+          <button type="button" class="btn btn--dark" data-new><svg class="i"><use href="#i-plus"/></svg>Добавить аромат</button>
+        </div>
+
+        <div class="list-tools">
+          <label class="search">
+            <svg class="i"><use href="#i-search"/></svg>
+            <input type="search" data-q placeholder="Найти по названию или бренду…" aria-label="Поиск ароматов">
+          </label>
+          <div class="seg" role="group" aria-label="Показать" data-list-filter>
+            <button type="button" data-value="" aria-pressed="true">Все</button>
+            <button type="button" data-value="hits" aria-pressed="false">Хиты</button>
+            <button type="button" data-value="hidden" aria-pressed="false">Скрытые</button>
+            <button type="button" data-value="out" aria-pressed="false">Нет в наличии</button>
+          </div>
+        </div>
+
+        <div class="plist" data-plist></div>
+        <p class="hint hint--center" data-order-hint>Порядок в этом списке — порядок на сайте. Меняйте его стрелками ↑ ↓.</p>
+      </section>
+
+      <!-- Настройки сайта -->
+      <section id="tab-settings" role="tabpanel" aria-labelledby="tab-btn-settings" data-panel="settings" hidden>
+        <div class="page-head">
+          <div>
+            <h1 class="page-title">Сайт и тексты</h1>
+            <p class="page-sub">Всё, что написано на сайте, кроме самих ароматов.</p>
+          </div>
+        </div>
+
+        <form class="settings" data-settings-form novalidate>
+          <fieldset class="panel">
+            <legend class="panel__title">Название и первый экран</legend>
+            <div class="grid-2">
+              <label class="field"><span>Название мастерской</span><input name="brand" maxlength="40"></label>
+              <label class="field"><span>Подпись под названием</span><input name="brandSub" maxlength="60"></label>
+            </div>
+            <label class="field"><span>Строка над заголовком</span><input name="heroEyebrow" maxlength="80"></label>
+            <label class="field"><span>Главный заголовок</span><input name="heroTitle" maxlength="140">
+              <small class="hint">Слово в *звёздочках* будет выделено красным курсивом.</small></label>
+            <label class="field"><span>Текст под заголовком</span><textarea name="heroText" rows="3" maxlength="600"></textarea></label>
+          </fieldset>
+
+          <fieldset class="panel">
+            <legend class="panel__title">О мастере</legend>
+            <div class="about-edit">
+              <div>
+                <div class="uploader uploader--round" data-uploader="aboutPhoto">
+                  <div class="uploader__preview" data-preview></div>
+                  <div class="uploader__buttons">
+                    <label class="btn btn--line btn--sm"><input type="file" accept="image/*" data-file hidden><svg class="i"><use href="#i-upload"/></svg>Загрузить фото</label>
+                    <button type="button" class="btn btn--text btn--sm" data-remove-image>Убрать</button>
+                  </div>
+                  <p class="hint">Портрет мастера или студии. Без фото на сайте будет иллюстрация с катаной.</p>
+                </div>
+              </div>
+              <div>
+                <label class="field"><span>Имя мастера</span><input name="masterName" maxlength="60"></label>
+                <label class="field"><span>Заголовок раздела</span><input name="aboutTitle" maxlength="140">
+                  <small class="hint">Можно выделить слово *звёздочками*.</small></label>
+                <label class="field"><span>Рассказ о себе</span><textarea name="aboutText" rows="7" maxlength="4000"></textarea>
+                  <small class="hint">Пустая строка между абзацами — новый абзац.</small></label>
+              </div>
+            </div>
+            <div class="field">
+              <span>Достижения</span>
+              <div class="list-edit" data-list="achievements"></div>
+              <button type="button" class="btn btn--text btn--sm" data-list-add="achievements"><svg class="i"><use href="#i-plus"/></svg>Добавить достижение</button>
+            </div>
+            <div class="field">
+              <span>Три пути мастера</span>
+              <div class="pillars-edit" data-pillars></div>
+            </div>
+          </fieldset>
+
+          <fieldset class="panel">
+            <legend class="panel__title">Студия</legend>
+            <label class="field"><span>Заголовок</span><input name="studioTitle" maxlength="140"></label>
+            <label class="field"><span>Текст</span><textarea name="studioText" rows="3" maxlength="1200"></textarea></label>
+          </fieldset>
+
+          <fieldset class="panel">
+            <legend class="panel__title">Контакты</legend>
+            <div class="grid-2">
+              <label class="field"><span>Telegram (имя пользователя)</span><input name="telegram" maxlength="60" placeholder="например, kodo_parfum" autocomplete="off">
+                <small class="hint">Сюда будут приходить заказы с сайта.</small></label>
+              <label class="field"><span>Телефон</span><input name="phone" maxlength="32" inputmode="tel"></label>
+              <label class="field"><span>Instagram</span><input name="instagram" maxlength="60" autocomplete="off"></label>
+              <label class="field"><span>WhatsApp (номер, необязательно)</span><input name="whatsapp" maxlength="20" inputmode="tel" placeholder="998901234567"></label>
+            </div>
+            <label class="field"><span>Адрес</span><input name="address" maxlength="200">
+              <small class="hint">Студия дома — лучше указать район, а точный адрес давать после записи.</small></label>
+            <label class="field"><span>Часы работы</span><input name="hours" maxlength="120"></label>
+            <div class="grid-2">
+              <label class="field"><span>Доставка</span><textarea name="delivery" rows="3" maxlength="600"></textarea></label>
+              <label class="field"><span>Оплата</span><textarea name="payment" rows="3" maxlength="600"></textarea></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="panel">
+            <legend class="panel__title">Частые вопросы</legend>
+            <div class="faq-edit" data-list="faq"></div>
+            <button type="button" class="btn btn--text btn--sm" data-list-add="faq"><svg class="i"><use href="#i-plus"/></svg>Добавить вопрос</button>
+          </fieldset>
+
+          <div class="savebar" data-savebar hidden>
+            <span>Есть несохранённые изменения</span>
+            <button type="button" class="btn btn--line btn--sm" data-settings-reset>Отменить</button>
+            <button type="submit" class="btn btn--dark btn--sm">Сохранить</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Безопасность -->
+      <section id="tab-security" role="tabpanel" aria-labelledby="tab-btn-security" data-panel="security" hidden>
+        <div class="page-head">
+          <div>
+            <h1 class="page-title">Безопасность</h1>
+            <p class="page-sub">Пароль от панели мастера и активные входы.</p>
+          </div>
+        </div>
+        <div class="panel-grid">
+          <form class="panel" data-password-form novalidate>
+            <h2 class="panel__title">Сменить пароль</h2>
+            <p class="panel__text" data-demo-only hidden>В демо-версии пароль не меняется — на настоящем сайте здесь задаётся свой пароль мастера.</p>
+            <label class="field"><span>Текущий пароль</span><input type="password" name="current" autocomplete="current-password" required></label>
+            <label class="field"><span>Новый пароль</span><input type="password" name="next" autocomplete="new-password" minlength="8" required>
+              <small class="hint">Минимум 8 символов. Все остальные устройства выйдут из панели.</small></label>
+            <label class="field"><span>Повторите новый пароль</span><input type="password" name="repeat" autocomplete="new-password" required></label>
+            <p class="form-error" data-password-error role="alert" hidden></p>
+            <button type="submit" class="btn btn--dark">Сохранить пароль</button>
+          </form>
+          <div class="panel">
+            <h2 class="panel__title">Входы на других устройствах</h2>
+            <p class="panel__text">Если входили в панель с чужого телефона или компьютера — завершите все остальные сеансы. Это устройство останется в панели.</p>
+            <button type="button" class="btn btn--line" data-logout-others>Выйти на других устройствах</button>
+            <h2 class="panel__title panel__title--spaced">Резервная копия</h2>
+            <p class="panel__text">Все ароматы, тексты и фото хранятся на сервере в папке <code>data/</code>. Время от времени копируйте её — это и есть полный бэкап сайта.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Редактор аромата -->
+  <dialog class="editor" data-editor aria-labelledby="editor-title">
+    <form class="editor__form" data-editor-form novalidate>
+      <header class="editor__head">
+        <h2 id="editor-title" data-editor-title>Новый аромат</h2>
+        <button type="button" class="icon-btn" data-editor-close aria-label="Закрыть"><svg class="i"><use href="#i-close"/></svg></button>
+      </header>
+      <div class="editor__body">
+        <div class="editor__media">
+          <p class="picker__title picker__title--first">Картинка на сайте</p>
+          <div class="seg seg--full look-switch" role="radiogroup" aria-label="Картинка на сайте">
+            <label><input type="radio" name="look" value="bottle"><span>Флакон</span></label>
+            <label><input type="radio" name="look" value="photo"><span>Своё фото</span></label>
+          </div>
+          <div class="uploader" data-uploader="image">
+            <div class="uploader__preview" data-preview></div>
+            <div class="uploader__photo" data-look-panel="photo">
+              <div class="uploader__buttons">
+                <label class="btn btn--line btn--sm"><input type="file" accept="image/*" data-file hidden><svg class="i"><use href="#i-upload"/></svg>Загрузить фото</label>
+                <button type="button" class="btn btn--text btn--sm" data-remove-image>Убрать фото</button>
+              </div>
+              <p class="hint">Перетащите фото сюда или вставьте из буфера (Ctrl+V). Большие фото уменьшатся автоматически.</p>
+            </div>
+          </div>
+          <div class="bottle-picker" data-look-panel="bottle">
+            <p class="picker__title">Форма флакона <span data-shape-name></span></p>
+            <div class="shape-grid" role="radiogroup" aria-label="Форма флакона" data-shapes></div>
+            <p class="picker__title">Цвет аромата <span data-color-name></span></p>
+            <div class="swatches" role="radiogroup" aria-label="Цвет аромата" data-colors></div>
+            <p class="picker__title">Крышка <span data-cap-name></span></p>
+            <div class="swatches" role="radiogroup" aria-label="Крышка" data-caps></div>
+          </div>
+        </div>
+
+        <div class="editor__fields">
+          <label class="field"><span>Название *</span><input name="name" maxlength="80" required placeholder="Например: Сёгун"></label>
+          <label class="field"><span>По мотивам</span><input name="inspiredBy" maxlength="120" placeholder="Бренд — аромат, например: Creed — Aventus"></label>
+          <div class="grid-2">
+            <fieldset class="field">
+              <legend>Для кого</legend>
+              <div class="seg seg--full">
+                <label><input type="radio" name="gender" value="female"><span>Женский</span></label>
+                <label><input type="radio" name="gender" value="male"><span>Мужской</span></label>
+                <label><input type="radio" name="gender" value="unisex"><span>Унисекс</span></label>
+              </div>
+            </fieldset>
+            <label class="field"><span>Семейство</span><input name="family" maxlength="40" list="families" placeholder="Например: Древесный"></label>
+          </div>
+          <datalist id="families"></datalist>
+          <label class="field"><span>Описание</span><textarea name="description" rows="3" maxlength="1500" placeholder="Пара предложений о характере аромата"></textarea></label>
+
+          <div class="subpanel">
+            <p class="subpanel__title">Ноты <small>через запятую</small></p>
+            <label class="field field--row"><span>Верхние</span><input name="notes.top" placeholder="бергамот, розовый перец"></label>
+            <label class="field field--row"><span>Сердце</span><input name="notes.heart" placeholder="роза, жасмин"></label>
+            <label class="field field--row"><span>База</span><input name="notes.base" placeholder="ваниль, сандал, мускус"></label>
+          </div>
+
+          <div class="subpanel">
+            <p class="subpanel__title">Объёмы и цены</p>
+            <div class="prices" data-prices></div>
+            <button type="button" class="btn btn--text btn--sm" data-add-price><svg class="i"><use href="#i-plus"/></svg>Добавить объём</button>
+          </div>
+
+          <div class="grid-2">
+            <label class="field"><span>Стойкость</span>
+              <select name="longevity">
+                <option value="0">Не указывать</option>
+                <option value="1">1 — едва заметная</option>
+                <option value="2">2 — лёгкая</option>
+                <option value="3">3 — средняя</option>
+                <option value="4">4 — хорошая</option>
+                <option value="5">5 — очень высокая</option>
+              </select>
+            </label>
+            <label class="field"><span>Шлейф</span>
+              <select name="sillage">
+                <option value="0">Не указывать</option>
+                <option value="1">1 — у кожи</option>
+                <option value="2">2 — лёгкий</option>
+                <option value="3">3 — заметный</option>
+                <option value="4">4 — сильный</option>
+                <option value="5">5 — очень сильный</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="checks">
+            <label class="check"><input type="checkbox" name="bestseller"><span>Хит продаж</span></label>
+            <label class="check"><input type="checkbox" name="isNew"><span>Новинка</span></label>
+            <label class="check"><input type="checkbox" name="inStock"><span>В наличии</span></label>
+            <label class="check"><input type="checkbox" name="visible"><span>Показывать на сайте</span></label>
+          </div>
+        </div>
+      </div>
+      <footer class="editor__foot">
+        <button type="button" class="btn btn--text btn--danger" data-editor-delete><svg class="i"><use href="#i-trash"/></svg>Удалить</button>
+        <span class="editor__status" data-editor-status role="status"></span>
+        <button type="button" class="btn btn--line" data-editor-close>Отмена</button>
+        <button type="submit" class="btn btn--dark" data-editor-save>Сохранить</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <div class="toasts" data-toasts aria-live="polite"></div>
+
+  <script src="/assets/js/art.js"></script>
+  <script src="/admin/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+node_modules/
+# Статическая сборка для Netlify / GitHub Pages (npm run build:static)
+dist/
+# Локальные настройки редактора и Claude Code
+.claude/
+# Рабочие данные сайта: база, загруженные фото, ключ сессий. Бэкапьте эту папку отдельно.
+data/

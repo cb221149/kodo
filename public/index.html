@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{title}}</title>
+  <meta name="description" content="{{description}}">
+  <meta name="theme-color" content="#f4ede3">
+  {{canonical}}
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="{{brand}}">
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:description" content="{{description}}">
+  {{ogUrl}}
+  {{ogImage}}
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600&display=swap&text=%E9%A6%99%E9%81%93%E5%88%80%E9%8B%8F%E5%8C%A0%E4%B8%80%E4%BA%8C%E4%B8%89">
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+  <a class="skip" href="#catalog">Перейти к каталогу</a>
+
+  <svg class="sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5.5 7.5h13l-1 12.5h-11z"/><path d="M9 7.5a3 3 0 0 1 6 0"/></symbol>
+    <symbol id="i-tg" viewBox="0 0 24 24"><path d="M21.5 3.5 2.5 10.8l6.6 2.4 2.3 6.8 3.1-4.3 4.9 3.6z"/><path d="m9.1 13.2 12.4-9.7"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h3.5l1.8 4.6-2.3 1.5a11 11 0 0 0 5.9 5.9l1.5-2.3L20 15.5V19a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path d="M4 20l1.3-4.2A8.3 8.3 0 1 1 8.3 18.7z"/><path d="M9 9.5c.3 2 1.8 3.8 4 4.6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 3.5v11M7.5 8 12 3.5 16.5 8"/><path d="M5 13v5.5A2 2 0 0 0 7 20.5h10a2 2 0 0 0 2-2V13"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6.5h11M9 12h11M9 17.5h11M4.5 6.5h.01M4.5 12h.01M4.5 17.5h.01"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+    <symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="7" r="2.6"/><circle cx="6" cy="17" r="2.6"/><path d="M8.2 8.4 20 16M8.2 15.6 20 8"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+  </svg>
+
+  <header class="header" id="top">
+    <div class="container header__row">
+      <a class="logo" href="/" aria-label="{{brand}} — на главную">
+        <span class="seal" aria-hidden="true">香</span>
+        <span class="logo__text">
+          <span class="logo__name" data-s="brand">{{brand}}</span>
+          <span class="logo__sub" data-s="brandSub">{{brandSub}}</span>
+        </span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Разделы сайта">
+        <a href="#hits" data-nav-hits>Хиты</a>
+        <a href="#catalog">Каталог</a>
+        <a href="#about">О мастере</a>
+        <a href="#how">Как заказать</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <div class="header__actions">
+        <a class="icon-btn" data-tg-link target="_blank" rel="noopener" aria-label="Написать в Telegram"><svg class="i"><use href="#i-tg"/></svg></a>
+        <button class="icon-btn" type="button" data-open-cart aria-label="Корзина">
+          <svg class="i"><use href="#i-bag"/></svg>
+          <span class="cart-count" data-cart-count hidden>0</span>
+        </button>
+        <button class="icon-btn burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Меню"><svg class="i"><use href="#i-menu"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow"><span class="eyebrow__mark"></span><span data-s="heroEyebrow">{{heroEyebrow}}</span></p>
+          <h1 class="hero__title" data-s-em="heroTitle">{{heroTitle}}</h1>
+          <p class="hero__text" data-s="heroText">{{heroText}}</p>
+          <div class="hero__actions">
+            <a class="btn btn--dark" href="#catalog">Смотреть каталог <svg class="i"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn--line" data-tg-link target="_blank" rel="noopener"><svg class="i"><use href="#i-tg"/></svg>Написать в Telegram</a>
+          </div>
+          <dl class="hero__facts" data-facts>
+            <div><dt data-stat="count-label">ароматов в коллекции</dt><dd data-stat="count">—</dd></div>
+            <div><dt data-stat="from-label">за флакон</dt><dd data-stat="from">—</dd></div>
+            <div><dt>ручная работа</dt><dd>100%</dd></div>
+          </dl>
+        </div>
+
+        <div class="hero__art">
+          <div class="hero__arch">
+            <div class="hero__katana" data-art="katana"></div>
+            <div class="hero__bottle" data-art="hero-bottle"></div>
+            <span class="hero__jp" aria-hidden="true">香道</span>
+          </div>
+          <span class="seal seal--xl hero__seal" aria-hidden="true">香</span>
+          <button type="button" class="hero__pick" data-hero-pick hidden></button>
+          <p class="hero__caption">香道 · кодо — «путь аромата»</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="ribbon" aria-hidden="true">
+      <div class="ribbon__track">
+        <span>Ручная работа</span><i>香</i><span>По мотивам мировых хитов</span><i>香</i><span>Домашняя студия в Ташкенте</span><i>香</i><span>Заказ в Telegram за минуту</span><i>香</i><span>Доставка по городу</span><i>香</i>
+        <span>Ручная работа</span><i>香</i><span>По мотивам мировых хитов</span><i>香</i><span>Домашняя студия в Ташкенте</span><i>香</i><span>Заказ в Telegram за минуту</span><i>香</i><span>Доставка по городу</span><i>香</i>
+      </div>
+    </div>
+
+    <section class="section" id="hits">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow"><span class="num">01</span> Хиты продаж</p>
+          <h2 class="section-title">Самые <em>покупаемые</em></h2>
+          <p class="section-lead">Ароматы, которые заказывают чаще всего, — проверенная классика мастерской.</p>
+          <span class="cut" aria-hidden="true"></span>
+        </div>
+        <div class="hits" data-hits></div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="catalog">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow"><span class="num">02</span> Каталог</p>
+          <h2 class="section-title">Вся <em>коллекция</em></h2>
+          <p class="section-lead">Выбирайте по настроению, нотам или любимому бренду. Цены — за флакон ручной работы.</p>
+          <span class="cut" aria-hidden="true"></span>
+        </div>
+
+        <div class="filters">
+          <label class="search">
+            <svg class="i"><use href="#i-search"/></svg>
+            <input type="search" data-filter="q" placeholder="Название, бренд или нота — например, «ваниль»" aria-label="Поиск по каталогу" autocomplete="off">
+          </label>
+          <div class="chips" role="group" aria-label="Для кого" data-filter="gender">
+            <button type="button" class="chip" data-value="" aria-pressed="true">Все</button>
+            <button type="button" class="chip" data-value="female" aria-pressed="false">Женские</button>
+            <button type="button" class="chip" data-value="male" aria-pressed="false">Мужские</button>
+            <button type="button" class="chip" data-value="unisex" aria-pressed="false">Унисекс</button>
+          </div>
+          <div class="filters__row">
+            <label class="select">
+              <span class="visually-hidden">Семейство ароматов</span>
+              <select data-filter="family"><option value="">Все семейства</option></select>
+            </label>
+            <label class="select">
+              <span class="visually-hidden">Сортировка</span>
+              <select data-filter="sort">
+                <option value="">По порядку мастера</option>
+                <option value="hits">Сначала хиты</option>
+                <option value="new">Сначала новинки</option>
+                <option value="cheap">Сначала дешевле</option>
+                <option value="expensive">Сначала дороже</option>
+              </select>
+            </label>
+            <div class="view-toggle" role="group" aria-label="Вид каталога">
+              <button type="button" data-view="grid" aria-pressed="true"><svg class="i"><use href="#i-grid"/></svg>Плитка</button>
+              <button type="button" data-view="table" aria-pressed="false"><svg class="i"><use href="#i-list"/></svg>Прайс</button>
+            </div>
+          </div>
+        </div>
+
+        <p class="catalog__count" data-count aria-live="polite"></p>
+        <div class="grid" data-grid></div>
+        <div class="pricelist" data-table hidden></div>
+
+        <div class="request" data-reveal>
+          <div>
+            <h3>Не нашли свой аромат?</h3>
+            <p>Напишите название любимого парфюма — мастер скажет, сможет ли его повторить.</p>
+          </div>
+          <form class="request__form" data-request>
+            <input type="text" name="wish" maxlength="120" required placeholder="Например: Kilian — Good Girl Gone Bad" aria-label="Какой аромат вы ищете">
+            <button class="btn btn--dark" type="submit"><svg class="i"><use href="#i-tg"/></svg>Спросить</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark about" id="about">
+      <div class="container about__grid">
+        <div class="about__media" data-reveal>
+          <div class="about__frame" data-about-media></div>
+          <span class="seal seal--lg about__seal" aria-hidden="true">匠</span>
+        </div>
+        <div class="about__copy" data-reveal>
+          <p class="eyebrow"><span class="num">03</span> О мастере</p>
+          <h2 class="section-title" data-s-em="aboutTitle"></h2>
+          <div class="about__text" data-s-paras="aboutText"></div>
+          <ul class="achievements" data-achievements></ul>
+        </div>
+      </div>
+      <div class="container">
+        <div class="pillars" data-pillars></div>
+      </div>
+    </section>
+
+    <section class="section studio" id="studio">
+      <div class="container studio__grid">
+        <div class="studio__copy" data-reveal>
+          <p class="eyebrow"><span class="num">04</span> Студия</p>
+          <h2 class="section-title" data-s-em="studioTitle"></h2>
+          <div class="studio__text" data-s-paras="studioText"></div>
+          <div class="studio__actions">
+            <a class="btn btn--dark" data-tg-link data-tg-text="Здравствуйте! Хочу записаться на стрижку." target="_blank" rel="noopener"><svg class="i"><use href="#i-scissors"/></svg>Записаться на стрижку</a>
+            <a class="btn btn--line" data-tg-link data-tg-text="Здравствуйте! Хочу прийти в студию и подобрать аромат." target="_blank" rel="noopener">Подобрать аромат вживую</a>
+          </div>
+        </div>
+        <div class="ticket" data-reveal>
+          <div class="ticket__top">
+            <div class="ticket__side"><span class="ticket__kanji" aria-hidden="true">鋏</span><span class="ticket__label">Стрижка</span></div>
+            <span class="ticket__plus" aria-hidden="true">+</span>
+            <div class="ticket__side"><span class="ticket__kanji ticket__kanji--shu" aria-hidden="true">香</span><span class="ticket__label">Аромат</span></div>
+          </div>
+          <ul class="ticket__info">
+            <li data-when="address"><svg class="i"><use href="#i-pin"/></svg><span data-s="address"></span></li>
+            <li data-when="hours"><svg class="i"><use href="#i-clock"/></svg><span data-s="hours"></span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="how">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow"><span class="num">05</span> Как заказать</p>
+          <h2 class="section-title">Три шага <em>до аромата</em></h2>
+          <span class="cut" aria-hidden="true"></span>
+        </div>
+        <ol class="steps">
+          <li class="step" data-reveal>
+            <span class="step__num" aria-hidden="true">一</span>
+            <h3>Выберите аромат</h3>
+            <p>Добавьте понравившиеся ароматы в корзину и выберите объём флакона.</p>
+          </li>
+          <li class="step" data-reveal>
+            <span class="step__num" aria-hidden="true">二</span>
+            <h3>Отправьте заказ</h3>
+            <p>Кнопка «Оформить» откроет Telegram с готовым текстом заказа — останется нажать «Отправить».</p>
+          </li>
+          <li class="step" data-reveal>
+            <span class="step__num" aria-hidden="true">三</span>
+            <h3>Получите флакон</h3>
+            <p>Мастер подтвердит заказ и договорится с вами о доставке или самовывозе.</p>
+          </li>
+        </ol>
+        <div class="info-row" data-reveal>
+          <div class="info" data-when="delivery"><h3>Доставка</h3><p data-s="delivery"></p></div>
+          <div class="info" data-when="payment"><h3>Оплата</h3><p data-s="payment"></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container faq__grid">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow"><span class="num">06</span> Вопросы</p>
+          <h2 class="section-title">Частые <em>вопросы</em></h2>
+          <p class="section-lead">Не нашли ответ — напишите, отвечу лично.</p>
+          <a class="btn btn--line faq__ask" data-tg-link data-tg-text="Здравствуйте! У меня вопрос:" target="_blank" rel="noopener"><svg class="i"><use href="#i-tg"/></svg>Задать вопрос</a>
+        </div>
+        <div class="faq" data-faq data-reveal></div>
+      </div>
+    </section>
+
+    <section class="section contacts" id="contacts">
+      <div class="container">
+        <div class="contacts__card" data-reveal>
+          <div class="contacts__copy">
+            <p class="eyebrow"><span class="num">07</span> Контакты</p>
+            <h2 class="section-title">Подберём аромат <em>под вас</em></h2>
+            <p>Напишите в Telegram — расскажу об ароматах, помогу с выбором и договоримся о доставке.</p>
+            <a class="btn btn--light btn--lg" data-tg-link target="_blank" rel="noopener"><svg class="i"><use href="#i-tg"/></svg>Написать в Telegram</a>
+          </div>
+          <ul class="contacts__list">
+            <li data-when="phone"><svg class="i"><use href="#i-phone"/></svg><a data-phone-link><span data-s="phone"></span></a></li>
+            <li data-when="telegram"><svg class="i"><use href="#i-tg"/></svg><a data-tg-link target="_blank" rel="noopener">@<span data-s="telegram"></span></a></li>
+            <li data-when="instagram"><svg class="i"><use href="#i-ig"/></svg><a data-ig-link target="_blank" rel="noopener">@<span data-s="instagram"></span></a></li>
+            <li data-when="whatsapp"><svg class="i"><use href="#i-wa"/></svg><a data-wa-link target="_blank" rel="noopener">WhatsApp</a></li>
+            <li data-when="address"><svg class="i"><use href="#i-pin"/></svg><span data-s="address"></span></li>
+            <li data-when="hours"><svg class="i"><use href="#i-clock"/></svg><span data-s="hours"></span></li>
+          </ul>
+          <span class="contacts__jp" aria-hidden="true">香</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__row">
+      <a class="logo logo--sm" href="#top">
+        <span class="seal" aria-hidden="true">香</span>
+        <span class="logo__text">
+          <span class="logo__name" data-s="brand">{{brand}}</span>
+          <span class="logo__sub" data-s="brandSub">{{brandSub}}</span>
+        </span>
+      </a>
+      <p class="footer__note">Ароматы созданы по мотивам известных парфюмов и не являются продукцией указанных брендов. Названия приведены только для описания звучания; товарные знаки принадлежат их владельцам.</p>
+      <p class="footer__meta">© <span data-year></span> <span data-s="brand">{{brand}}</span> · Ташкент · <a href="/admin/" rel="nofollow">Вход для мастера</a></p>
+    </div>
+  </footer>
+
+  <dialog class="pd" id="product" aria-labelledby="pd-name">
+    <div class="pd__body" data-pd></div>
+  </dialog>
+
+  <dialog class="drawer" id="cart" aria-labelledby="cart-title">
+    <div class="drawer__inner">
+      <header class="drawer__head">
+        <h2 id="cart-title">Корзина</h2>
+        <button class="icon-btn" type="button" data-close-cart aria-label="Закрыть корзину"><svg class="i"><use href="#i-close"/></svg></button>
+      </header>
+      <div class="drawer__items" data-cart-items></div>
+      <footer class="drawer__foot" data-cart-foot>
+        <label class="field">
+          <span>Комментарий к заказу</span>
+          <textarea rows="2" maxlength="400" data-cart-note placeholder="Район доставки, удобное время, вопрос мастеру…"></textarea>
+        </label>
+        <div class="drawer__total"><span>Итого</span><strong data-cart-total>0 сум</strong></div>
+        <button class="btn btn--dark btn--block btn--lg" type="button" data-checkout><svg class="i"><use href="#i-tg"/></svg>Оформить в Telegram</button>
+        <p class="drawer__hint">Откроется чат с мастером и готовым текстом заказа. Оплата — после подтверждения. <button type="button" class="link" data-clear-cart>Очистить корзину</button></p>
+      </footer>
+    </div>
+  </dialog>
+
+  <button class="cart-fab" type="button" data-open-cart hidden>
+    <svg class="i"><use href="#i-bag"/></svg>
+    <span><span data-cart-count>0</span> · <span data-cart-sum>0 сум</span></span>
+  </button>
+
+  <div class="toasts" data-toasts aria-live="polite"></div>
+
+  {{bootstrap}}
+  <script src="/assets/js/art.js"></script>
+  <script src="/assets/js/site.js"></script>
+</body>
+</html>

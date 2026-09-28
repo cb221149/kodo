@@ -1,0 +1,8 @@
+# Netlify: Add new site → Import an existing project → GitHub → этот репозиторий.
+# Работает и с приватным репозиторием; сайт пересобирается при каждом изменении в main.
+[build]
+  command = "npm run build:static"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"

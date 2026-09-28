@@ -1,0 +1,16 @@
+{
+  "name": "kodo-parfum",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Сайт домашней парфюмерной мастерской: витрина, хиты, о мастере и админка для управления ароматами",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "share": "node scripts/share.js",
+    "build:static": "node scripts/build-static.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

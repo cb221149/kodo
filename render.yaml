@@ -1,0 +1,18 @@
+# Постоянная бесплатная ссылка на демо через Render.com:
+# Render → New → Blueprint → выбрать GitHub-репозиторий с этим проектом → указать пароль панели → Deploy.
+# На бесплатном тарифе сайт засыпает через 15 минут без посетителей (первое открытие ~1 минута),
+# а при перезапуске возвращается к демо-данным из lib/seed.js — для показа это даже удобно.
+services:
+  - type: web
+    name: kodo-parfum
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/public
+    envVars:
+      - key: TRUST_PROXY
+        value: "1"
+      - key: ADMIN_PASSWORD
+        sync: false
