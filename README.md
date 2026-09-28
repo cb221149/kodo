@@ -28,16 +28,19 @@ npm run build:static
 
 Команда собирает папку `dist/` — статическую версию сайта с текущим каталогом. Сервер для неё не нужен, поэтому её можно выложить на любой бесплатный хостинг. Витрина работает полностью (каталог, корзина, заказ в Telegram), а панель мастера — в **демо-режиме**: вход по любому паролю, правки и фото сохраняются только в браузере того, кто их делает, и на витрине видны только на его устройстве (там же кнопка «Вернуть как было»). Мастер может спокойно всё потрогать.
 
-**Netlify (1 минута):**
-1. Откройте https://app.netlify.com/drop и войдите (бесплатно, через GitHub, Google или почту).
-2. Перетащите в окно папку `dist`.
-3. Готово: ссылка вида `https://случайное-имя.netlify.app`. Имя можно поменять: Site configuration → Change site name, например `kodo-parfum` → `https://kodo-parfum.netlify.app`.
-4. Обновить после правок: снова `npm run build:static`, затем в Netlify → Deploys → перетащить новую папку `dist`.
+Проект лежит в репозитории [cb221149/kodo](https://github.com/cb221149/kodo), и сборку можно поручить хостингу — сайт будет обновляться сам после каждого `git push`. Онлайн собирается каталог из `lib/seed.js` (папка `data/` в git не попадает).
 
-**GitHub Pages:**
-1. Создайте на GitHub публичный репозиторий, например `kodo-parfum`.
-2. «uploading an existing file» → перетащите **содержимое** папки `dist` (файлы и папки внутри неё) → Commit changes.
-3. Settings → Pages → Branch: `main`, папка `/ (root)` → Save. Через минуту сайт будет на `https://ЛОГИН.github.io/kodo-parfum/`.
+**Netlify из GitHub (работает и с приватным репозиторием):**
+1. https://app.netlify.com → Add new site → Import an existing project → GitHub → выберите `cb221149/kodo`.
+2. Настройки сборки подтянутся из `netlify.toml` — нажмите Deploy.
+3. Готово: ссылка вида `https://случайное-имя.netlify.app`; имя меняется в Site configuration → Change site name (например, `kodo-parfum`).
+
+**GitHub Pages (только для публичного репозитория на бесплатном тарифе):**
+1. Settings → General → Change visibility → Public.
+2. Settings → Pages → Build and deployment → Source: **GitHub Actions**.
+3. Actions → GitHub Pages → Run workflow. Через минуту сайт будет на `https://cb221149.github.io/kodo/`; дальше публикуется сам при каждом push (`.github/workflows/pages.yml`).
+
+**Без GitHub, вручную:** откройте https://app.netlify.com/drop и перетащите папку `dist`. Обновить — снова `npm run build:static` и перетащить новую `dist` в Deploys.
 
 ### Временная ссылка с вашего компьютера: `npm run share`
 
